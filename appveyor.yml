@@ -1,0 +1,39 @@
+# For documentation on the github environment, see
+# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+#
+# For documentation on the syntax of this file, see
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
+
+
+build:
+  project: CollisionMate.sln             # path to Visual Studio solution or project
+  parallel: true                        # enable MSBuild parallel builds
+  verbosity: normal                     # MSBuild verbosity level {quiet|minimal|normal|detailed}
+
+environment:
+    matrix:
+        - FLAVOR: VS 2022 x64 Debug
+          APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+          platform: x64
+          configuration: Debug
+ 
+test_script:
+  - cmd: appveyorTestRunScript.bat
+  
+after_test:
+- ps: >-
+    #upload results
+
+    if(Test-Path -Path 'test.xml' -PathType Leaf) {
+        $wc = New-Object 'System.Net.WebClient'
+        $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\test.xml))
+    }
+
+on_failure:
+- ps: >-
+    #upload results
+
+    if(Test-Path -Path 'test.xml' -PathType Leaf) {
+        $wc = New-Object 'System.Net.WebClient'
+        $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\test.xml))
+    }

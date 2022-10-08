@@ -3,3 +3,10 @@
 ################################################################################
 
 /Tests/.opencppcov/Tests
+/Tests/x64/Debug
+/CollisionMate/x64/Debug
+/CollisionMate/.vs/CollisionMate
+*.cpp
+*.hpp
+*.h
+/.vs

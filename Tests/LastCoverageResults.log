@@ -1,0 +1,21 @@
+[2022-10-08 08:31:36] [info] Start Program:
+Path:"C:\Users\Janko\source\repos\CollisionMate\CollisionMate\x64\Debug\Tests.exe"
+Arguments:
+Working directory: "C:\Users\Janko\source\repos\CollisionMate\Tests\"
+Modules: Selected: C:\Users\Janko\source\repos\CollisionMate\CollisionMate\x64\Debug\CollisionMate.exe C:\Users\Janko\source\repos\CollisionMate\CollisionMate\x64\Debug\Tests.exe Excluded: 
+Sources: Selected: C:\Users\Janko\source\repos\CollisionMate\CollisionMate C:\Users\Janko\source\repos\CollisionMate\Tests Excluded: catch.* 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\Janko\AppData\Local\Temp\tb3n53jv.twi 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2022-10-08 08:31:36] [info] Module: C:\Users\Janko\source\repos\CollisionMate\CollisionMate\x64\Debug\Tests.exe is selected because it matches selected pattern: C:\Users\Janko\source\repos\CollisionMate\CollisionMate\x64\Debug\Tests.exe
+[2022-10-08 08:31:36] [info] ----------------------------------------------------
+[2022-10-08 08:31:36] [info] Coverage binary generated in file: C:\Users\Janko\AppData\Local\Temp\tb3n53jv.twi
+[2022-10-08 08:31:36] [info] ----------------------------------------------------
