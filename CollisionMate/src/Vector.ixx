@@ -2,7 +2,7 @@ module;
 
 #include <array>
 #include <concepts>
-#include <iostream>
+#include <ostream>
 
 export module vector;
 
@@ -25,11 +25,17 @@ export namespace math {
     vector3(T x_value, T y_value, T z_value) : vec({ x_value, y_value, z_value }) {}
     explicit vector3(const std::array<T, 3>& arr) : vec(arr) {}
 
-    vector3(const vector3&) = default;
-    vector3& operator=(const vector3&) = default;
+    vector3(const vector3& rhs) : vec(rhs.vec) {}
+    vector3& operator=(const vector3& rhs) {
+      this->vec = rhs.vec;
+      return *this;
+    }
 
-    vector3(vector3&&) noexcept = default;
-    vector3& operator=(vector3&&) noexcept = default;
+    vector3(vector3&& rhs) noexcept : vec(std::move(rhs.vec)) {}
+    vector3& operator=(vector3&& rhs) noexcept {
+      vec = std::move(rhs.vec);
+      return *this;
+    };
     ~vector3() = default;
 
     friend constexpr vector3 operator+(const vector3& lhs,
@@ -40,6 +46,10 @@ export namespace math {
     friend constexpr vector3 operator-(const vector3& lhs,
       const vector3& rhs) noexcept {
       return vector3{ lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z };
+    }
+
+    vector3 operator-() const {
+      return vector3{-x, -y, -z};
     }
 
     friend constexpr vector3 operator/(const vector3& lhs,
@@ -86,10 +96,10 @@ export namespace math {
       T tmp_z{ z * rhs.z };
       return static_cast<PRECISION>(tmp_x + tmp_y + tmp_z);
     }
-
-    std::array<T, 3> vec{};
-    T& x{ vec[0] };
-    T& y{ vec[1] };
-    T& z{ vec[2] };
+  //FIXME: maybe replace std::array with c style array(T vec[3])
+    union{
+      std::array<T, 3> vec{};
+      struct{T x, y, z;};
+    };
   };
 } // namespace math

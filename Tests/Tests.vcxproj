@@ -106,7 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalOptions>/reference C:\Users\Janko\source\repos\CollisionMate\CollisionMate\x64\Debug\Vector.ixx.ifc %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions> /reference C:\Users\Janko\source\repos\CollisionMate\CollisionMate\x64\Debug\GJK.ixx.ifc  /reference C:\Users\Janko\source\repos\CollisionMate\CollisionMate\x64\Debug\Vector.ixx.ifc %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

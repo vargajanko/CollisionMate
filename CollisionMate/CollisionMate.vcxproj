@@ -40,7 +40,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -132,6 +132,8 @@
   <ItemGroup>
     <ClCompile Include="src\BspTree.ixx" />
     <ClCompile Include="src\clang_tidy.cpp" />
+    <ClCompile Include="src\GJK.ixx" />
+    <ClCompile Include="src\Line.ixx" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Matrix.ixx" />
     <ClCompile Include="src\Vector.ixx" />
